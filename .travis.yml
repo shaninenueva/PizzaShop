@@ -1,2 +1,2 @@
 language: java
-script: ./mvnw test -B.
+script: ./mvnw test -B
