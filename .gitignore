@@ -35,3 +35,5 @@ build/
 ### MySQL ###
 .sql
 .db
+/PizzaShop.db
+/PizzaShop.sql
