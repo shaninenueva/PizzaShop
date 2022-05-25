@@ -15,18 +15,18 @@ public class OrderController {
     private OrderRepository orderRepository;
 
     @GetMapping
-    public List<Order> getOrder(){
+    public List<Order> getAllOrders(){
         return orderRepository.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void createOrder(@RequestBody Order order){
-
+        orderRepository.save(order);
     }
 
     @GetMapping("/{id}")
     public Order get(@PathVariable("id") long id){
-        return new Order();
+        return orderRepository.getReferenceById(id);
     }
 }

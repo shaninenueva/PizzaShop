@@ -1,27 +1,26 @@
 package com.pizzaheaven.pizza.controllers;
 
-import com.pizzaheaven.pizza.models.Person;
-import com.pizzaheaven.pizza.models.Pizza;
+import com.pizzaheaven.pizza.models.User;
+import com.pizzaheaven.pizza.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-    @GetMapping
-    public Person getAccount(){
-        Person person = new Person(1, "Sam Smith", "Null");
-        return person;
-    }
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void create(@RequestBody Pizza pizza){
-
+    public void createAccount(@RequestBody User user){
+        userRepository.save(user);
     }
 
-
+    @GetMapping("/{id}")
+    public User get(@PathVariable("id") int id){
+        return userRepository.getReferenceById(id);
+    }
 
 }

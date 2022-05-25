@@ -3,8 +3,8 @@ package com.pizzaheaven.pizza.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Person")
-public class Person {
+@Table(name="Users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

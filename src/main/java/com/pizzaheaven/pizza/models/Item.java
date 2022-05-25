@@ -1,10 +1,12 @@
 package com.pizzaheaven.pizza.models;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
+import javax.persistence.*;
 
-
-public class Pizza {
+@Entity
+@Table(name="Item")
+public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderID;
     private String size;
     private String base;
