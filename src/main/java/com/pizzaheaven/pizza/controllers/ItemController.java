@@ -27,7 +27,7 @@ public class ItemController {
     }
 
     @GetMapping("/{itemID}")
-    public Item get(@PathVariable("itemID") int itemID){
+    public Item get(@PathVariable("itemID") Long itemID){
         return itemRepository.getReferenceById(itemID);
     }
 

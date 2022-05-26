@@ -10,31 +10,31 @@ import javax.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int itemID;
-    private int orderID;
+    private Long itemID;
+    private Long orderID;
     private String size;
     private String base;
     private String topping;
     private double price;
     private int quantity;
-    private double totalPrice;
+    private double total_price;
 
     public Item() {
     }
 
-    public int getItemID() {
+    public Long getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
+    public void setItemID(Long itemID) {
         this.itemID = itemID;
     }
 
-    public int getOrderID() {
+    public Long getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(Long orderID) {
         this.orderID = orderID;
     }
 
@@ -78,12 +78,12 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public double getTotal_price() {
+        return total_price;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
     }
 }
 
