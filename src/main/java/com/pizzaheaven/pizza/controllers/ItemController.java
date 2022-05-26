@@ -7,18 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @RestController
-@RequestMapping("/pizza")
+@RequestMapping("/items")
 public class ItemController {
     @Autowired
     private ItemRepository itemRepository;
 
     @GetMapping
-    public ArrayList<Item> getAllPizza(){
-        ArrayList<Item> items = new ArrayList<>();
-        return items;
+    public List<Item> getAllPizza(){
+        return itemRepository.findAll();
     }
 
     @PostMapping
@@ -27,6 +26,9 @@ public class ItemController {
         itemRepository.save(item);
     }
 
-
+    @GetMapping("/{itemID}")
+    public Item get(@PathVariable("itemID") int itemID){
+        return itemRepository.getReferenceById(itemID);
+    }
 
 }
