@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/item")
 public class ItemController {
     @Autowired
     private ItemRepository itemRepository;
@@ -20,15 +20,17 @@ public class ItemController {
         return itemRepository.findAll();
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void create(@RequestBody Item item){
-        itemRepository.save(item);
-    }
-
     @GetMapping("/{itemID}")
     public Item get(@PathVariable("itemID") Long itemID){
         return itemRepository.getReferenceById(itemID);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void addItems(@RequestBody List<Item> items){
+        items.forEach(item -> {
+            itemRepository.save(item);
+        });
     }
 
 }
