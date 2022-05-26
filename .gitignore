@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MySQL ###
+.sql
+.db
+/PizzaShop.db
+/PizzaShop.sql
